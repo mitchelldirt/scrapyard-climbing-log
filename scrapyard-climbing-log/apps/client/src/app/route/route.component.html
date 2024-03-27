@@ -1,0 +1,24 @@
+<main>
+    <h1>{{sampleRoute.grade}}</h1>
+    <img src="{{sampleRoute.image}}" alt="Image of the route">
+    <p>{{sampleRoute.date}}</p>
+</main>
+<!--Only display if a user is logged in-->
+<section class="form-container" id="userContent">
+    <form>
+        <label for="sent">
+            Sent
+            <input type="checkbox" id="sent" name="sent" [checked]="sampleRoute.sent">
+        </label>
+        <label for="attempts">
+            Attempts
+            <input type="number" id="attempts" name="attempts" [value]="sampleRoute.attempts">
+        </label>
+        <label for="notes">
+            Notes
+
+        </label>
+        <textarea id="notes" name="notes">{{sampleRoute.notes}}</textarea>
+        <button type="submit">Save</button>
+    </form>
+</section>

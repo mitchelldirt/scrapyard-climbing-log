@@ -1,7 +1,7 @@
 .walls-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1rem;
     padding: 1rem;
 }
@@ -20,4 +20,23 @@ h2 {
     color: var(--text-color);
     font-size: 1.5rem;
     text-align: center;
+}
+
+.toprope {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.feedback-button {
+    background-color: #ff6900;
+    padding: 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.feedback-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

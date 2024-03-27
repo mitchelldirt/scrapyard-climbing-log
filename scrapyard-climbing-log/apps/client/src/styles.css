@@ -149,9 +149,16 @@ body {
     min-height: 100vh;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 /* global styles */
 body {
     background-color: var(--bg-color);
+    font-family: sans-serif, Arial;
 }
 
 h1,

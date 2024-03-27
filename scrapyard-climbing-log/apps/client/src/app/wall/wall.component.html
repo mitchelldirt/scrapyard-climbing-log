@@ -1,1 +1,11 @@
-<p>wall works!</p>
+<ol class="grades-table" role="table">
+    @for (route of sampleRoutes; track route) {
+    <li role="row">
+        <a class="grades-row" routerLink="{{route.id}}" routerLinkActive="">
+            <span>✅</span>
+            <p class="grade">{{ route.grade }}</p>
+            <p class="attempts">Attempts: {{route.attempts}}</p>
+        </a>
+    </li>
+    }
+</ol>
