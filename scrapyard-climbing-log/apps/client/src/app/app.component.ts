@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HeaderComponent } from './header/header.component';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [
+    RouterModule,
+    HeaderComponent,
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive,
+  ],
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  `,
   styleUrl: './app.component.css',
 })
 export class AppComponent {
