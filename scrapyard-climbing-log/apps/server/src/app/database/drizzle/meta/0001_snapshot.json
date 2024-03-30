@@ -1,0 +1,266 @@
+{
+  "id": "91beb04b-408c-4f47-9bd9-8764fac90190",
+  "prevId": "7f73103b-3fec-4354-af97-4ea90a04b8c1",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "route_note": {
+      "name": "route_note",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "''"
+        },
+        "sent": {
+          "name": "sent",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "attempts": {
+          "name": "attempts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "userId": {
+          "name": "userId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "routeId": {
+          "name": "routeId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "route_note_userId_user_userId_fk": {
+          "name": "route_note_userId_user_userId_fk",
+          "tableFrom": "route_note",
+          "tableTo": "user",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "userId"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "route_note_routeId_route_id_fk": {
+          "name": "route_note_routeId_route_id_fk",
+          "tableFrom": "route_note",
+          "tableTo": "route",
+          "columnsFrom": [
+            "routeId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "route": {
+      "name": "route",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "grade": {
+          "name": "grade",
+          "type": "grade",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dateSet": {
+          "name": "dateSet",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dateArchived": {
+          "name": "dateArchived",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "archived": {
+          "name": "archived",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "image": {
+          "name": "image",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "color",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "wallId": {
+          "name": "wallId",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "route_wallId_wall_name_fk": {
+          "name": "route_wallId_wall_name_fk",
+          "tableFrom": "route",
+          "tableTo": "wall",
+          "columnsFrom": [
+            "wallId"
+          ],
+          "columnsTo": [
+            "name"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "user": {
+      "name": "user",
+      "schema": "",
+      "columns": {
+        "userId": {
+          "name": "userId",
+          "type": "varchar(100)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "role",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'user'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "wall": {
+      "name": "wall",
+      "schema": "",
+      "columns": {
+        "name": {
+          "name": "name",
+          "type": "varchar(20)",
+          "primaryKey": true,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {
+    "color": {
+      "name": "color",
+      "values": {
+        "red": "red",
+        "blue": "blue",
+        "green": "green",
+        "yellow": "yellow",
+        "black": "black",
+        "white": "white",
+        "purple": "purple",
+        "orange": "orange",
+        "pink": "pink",
+        "seafoam": "seafoam"
+      }
+    },
+    "grade": {
+      "name": "grade",
+      "values": {
+        "V?": "V?",
+        "VB": "VB",
+        "VB+": "VB+",
+        "V0": "V0",
+        "V1": "V1",
+        "V2": "V2",
+        "V3": "V3",
+        "V4": "V4",
+        "V5": "V5",
+        "V6": "V6",
+        "V7": "V7",
+        "V8": "V8",
+        "V9": "V9",
+        "5.6": "5.6",
+        "5.7": "5.7",
+        "5.8": "5.8",
+        "5.9": "5.9",
+        "5.10-": "5.10-",
+        "5.10": "5.10",
+        "5.10+": "5.10+",
+        "5.11-": "5.11-",
+        "5.11": "5.11",
+        "5.11+": "5.11+",
+        "5.12-": "5.12-",
+        "5.12": "5.12",
+        "5.12+": "5.12+",
+        "5.13-": "5.13-",
+        "5.13": "5.13",
+        "5.13+": "5.13+",
+        "5.14-": "5.14-",
+        "5.14": "5.14",
+        "5.14+": "5.14+",
+        "5.15-": "5.15-",
+        "5.15": "5.15",
+        "5.15+": "5.15+"
+      }
+    },
+    "role": {
+      "name": "role",
+      "values": {
+        "admin": "admin",
+        "user": "user"
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { WallRoute } from '@scrapyard-climbing-log/types';
 
 @Component({
   selector: 'app-wall',
@@ -10,7 +11,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './wall.component.css',
 })
 export class WallComponent {
-  sampleRoutes = [
+  sampleRoutes: WallRoute[] = [
     { id: '12345', sent: true, grade: 'V0', attempts: 3 },
     { id: '12345', sent: false, grade: 'V1', attempts: 2 },
     { id: '12345', sent: true, grade: 'V2', attempts: 1 },

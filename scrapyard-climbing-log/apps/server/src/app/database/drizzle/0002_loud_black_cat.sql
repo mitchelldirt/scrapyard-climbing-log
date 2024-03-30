@@ -1,0 +1,1 @@
+UPDATE route SET color = 'blue';
