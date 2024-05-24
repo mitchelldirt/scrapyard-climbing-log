@@ -73,12 +73,6 @@ export default function HomeScreen() {
       }>
       <ThemedView style={styles.wallsContainer}>
 
-        <Link href={'search'} asChild>
-          <Pressable>
-            <ThemedText>Search</ThemedText>
-          </Pressable>
-        </Link>
-
         {walls.map((wall, key) => {
           return (
             <ThemedView key={key} style={styles.wallContainer}>
