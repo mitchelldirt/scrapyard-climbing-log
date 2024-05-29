@@ -98,7 +98,7 @@ const RouteRow = ({ id, color, grade, sent, attempts }: routeRowProps) => (
     </Link>
 );
 
-export default function HomeScreen() {
+export default function Wall() {
     let currentWall = useLocalSearchParams().title;
 
     // make sure current wall isn't an array
@@ -108,15 +108,7 @@ export default function HomeScreen() {
 
     return (
         // TODO: replace with scrapyard logo
-        <ParallaxScrollView
-            headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-            headerImage={
-                <Image
-                    source={require('@/assets/images/partial-react-logo.png')}
-                    style={styles.reactLogo}
-                />
-            }>
-
+        <View>
             <Stack.Screen options={{ title: currentWall }} />
             <ThemedView style={styles.wallsContainer}>
                 <FlatList
@@ -126,7 +118,7 @@ export default function HomeScreen() {
                     style={styles.stepContainer}
                 />
             </ThemedView>
-        </ParallaxScrollView>
+        </View>
     );
 }
 
